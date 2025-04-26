@@ -20,10 +20,14 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# ARANDR setup
+#exec_always --no-startup-id ~/.screenlayout/DoubleScreenSetup.sh
+exec_always --no-startup-id ~/.config/i3/scripts/screen_setup.sh
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec_always --no-startup-id dex --autostart --environment i3
-exec_always --no-startup-id feh --bg-scale /opt/skillarch/assets/bg-00.jpg
+# exec_always --no-startup-id dex --autostart --environment i3
+# exec_always --no-startup-id feh --bg-scale /home/roro/Pictures/Wallpaper.png
 exec_always --no-startup-id ~/.config/polybar/launch.sh &> /var/tmp/polybar.log
 exec_always --no-startup-id pgrep --exact VBoxService &> /dev/null && killall VBoxClient ; VBoxClient-all
 exec_always --no-startup-id bash -c "killall -q picom ; grep -qF hypervisor /proc/cpuinfo || picom"
@@ -33,7 +37,7 @@ exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-ag
 # they are included here as an example. Modify as you see fit.
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork   
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -196,7 +200,7 @@ bindsym $mod+l exec i3lock-fancy -f Bitstream-Vera-Serif -t 'Welcome back to Ski
 default_border pixel 2
 default_floating_border pixel 2
 
-client.focused          #000000 #000000 #000000 #aa00ee   #660066
+client.focused          #000000 #000000 #000000 #bababa   #808080
 client.unfocused        #000000 #000000 #000000 #000000   #000000
 client.focused_inactive #000000 #000000 #000000 #000000   #000000
 client.unfocused_inactive #000000 #000000 #000000 #000000   #000000
