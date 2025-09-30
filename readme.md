@@ -1,10 +1,9 @@
-# SkillArch - [![Docker Build](https://github.com/laluka/skillarch/actions/workflows/docker.yml/badge.svg)](https://github.com/laluka/skillarch/actions/workflows/docker.yml)
+# SkillArch - [![Security Checks & Docker Builds](https://github.com/laluka/skillarch/actions/workflows/cicd.yml/badge.svg)](https://github.com/laluka/skillarch/actions/workflows/cicd.yml)
 
-<img src='assets/skillarch-full.png' width='250'>
+<img src='assets/logo-round-cold.png' width='250'><img src='assets/logo-round-hot.png' width='250'>
 
-> The lite/full install takes 20/30 minutes 🕑️\
-> Please watch this intro video to onboard yourself! 🙏\
-> ➡️ TODO:(lalu) ⬅️
+> The lite/full install takes 10/15 minutes 🕑️\
+> And here is a gentle rice 😇
 
 <img src='assets/rice-01.png' width='800'>
 
@@ -14,6 +13,10 @@
 
 ### SIMPLE / NO-CUSTOMIZE / NO-BACKUP
 
+> 🔴🎬🙏 Please watch this 5mn intro video to onboard yourself! 🙏🎬🔴
+
+[![](https://img.youtube.com/vi/HB1hxJgGoDo/0.jpg)](https://youtu.be/HB1hxJgGoDo)
+
 - First, download the `Desktop Edition` at https://cachyos.org/download/
 - Install it, pick the `Gnome` flavor
 - Then open `Console` and install SkillArch 🥂
@@ -22,18 +25,29 @@
 git clone https://github.com/laluka/skillarch
 sudo mv skillarch /opt/skillarch && cd /opt/skillarch
 make install # Then reboot && pick i3 at login
+
+# Update by running this command (will pull changes & apply them):
+ska-update-simple
 ```
 
 ###  ADVANCED / FULL-CUSTOMIZE / FULL-BACKUP
 
+> 🔴🎬🙏 Please watch this 10mn intro video to onboard yourself! 🙏🎬🔴
+
+[![](https://img.youtube.com/vi/Wq6CmJJnTJk/0.jpg)](https://youtu.be/Wq6CmJJnTJk)
+
 1. [Fork this repo](https://github.com/laluka/skillarch/fork)
-1. Install `your` SkillArch with the [usual install process](https://github.com/laluka/skillarch/tree/tweak-lalu?tab=readme-ov-file#how-to)
+1. Install `your` SkillArch with the [usual install process](#simple--no-customize--no-backup)
 1. Add the upstream source: `git remote add upstream https://github.com/laluka/skillarch.git`
 1. When you'll want to `add a tweak` or  `update your setup` 🫶
 
 ```bash
+# Update by running this command (simply follow the process):
+ska-update-advanced
+
+# "The process" is mostly like below:
 # SAVE your changes on your repo
-git add foo ; git commit -m 'added foo' ; git push
+git add foo ; git commit -m i-added-foo ; git push
 # Then, from a CLEAN git state
 ska && git status
 # PULL & CHECKOUT upstream changes
@@ -55,6 +69,10 @@ ska-update-simple
 ---
 
 ## Documentation
+
+> 🔴🎬🙏 Please watch this 1h FULL TOUR video so you can make the most out of your SkillArch Adventure! 🙏🎬🔴
+
+[![](https://img.youtube.com/vi/pUm7KEgM2g8/0.jpg)](https://youtu.be/pUm7KEgM2g8)
 
 ### Get Help
 
@@ -100,18 +118,18 @@ make help
 ### MISC Gotchas
 
 - If `make install` or `ska-update-simple` loop on a y/n question, fix your pacman config first! 😉
-- The main config is azerty (shhh I know), here is a refetrence to [tweak your config back to qwerty](https://github.com/CachyOS/cachyos-i3wm-settings/blob/develop/etc/skel/.config/i3/config)
+- The main config is azerty (shhh I know), here is a reference to [tweak your config back to qwerty](https://github.com/CachyOS/cachyos-i3wm-settings/blob/develop/etc/skel/.config/i3/config)
 - Kitty visual/rectangle select is done with `ctrl+alt+click/drag`, you're welcome!
 - The docker `latest` is actually the `lite` image with everything CLI related
 - The docker `full` image contains GUI stuff and wordlists
 - Why `sleep` in `Makefile`? Building TOO fast was triggering github limit-rate
-- If for some reasons, multiple polybar appear, it's because no primary monitor is assigned
- - Check it's actually true: `polybar  --list-monitors` # Should have one primary label
- - Fix it by openin `arandr` + right click to set `primary` on your main screen.
- - Reload i3 with `mod+Shift+r`, then make it permanent, aka goto doc `Multiple Monitor`
 - No [CachyOs on ARM](https://discuss.cachyos.org/t/arm-future-for-cachyos/727), therefore no SkillArch on ARM.
+- Extensions are installed for VsCode. Cursor packaging is weird, so while it's open: `ctrl+shift+p` > `Import VsCode Extensions`
+- Chrome extensions are not installed by default. Have a look to [/config/chrome-extensions.lst](/config/chrome-extensions.lst)
 
 ### VM & VirtualBox Stuff
+
+> I've had tons of issues with VirtualBox laterly, and things worked PERFECTLY on Gnome Boxes (from `qemu-full` and `gnome-extra`), I strongly suggest using it instead, see the install guide above.
 
 - The `ska-vbox-install-guestutils` alias will auto-install `virtualbox-guest-utils`
 - In `VirtualBox`, when i3 starts it will run `VBoxClient-all` for clipboard & goodies
@@ -134,6 +152,11 @@ echo "$HOME/.screenlayout/arandr-main-layout.sh &" > ~/.xprofile
 chmod +x ~/.xprofile
 # Logout, Login, should work first try!
 ```
+
+- If for some reasons, multiple polybar appear, it's because no primary monitor is assigned
+ - Check it's actually true: `polybar  --list-monitors` # Should have one primary label
+ - Fix it by openin `arandr` + right click to set `primary` on your main screen.
+ - Reload i3 with `mod+Shift+r`, then make it permanent, aka goto doc `Multiple Monitor`
 
 ### Docker Usage
 
@@ -248,7 +271,7 @@ bindsym $mod+k exec cursor
 
 ### Installed Packages, Plugins, Tools
 
-- For an exhaustive view inspect [Makefile](/Makefile)
+- For an exhaustive view inspect [/Makefile](/Makefile)
 
 ```bash
 # Pacman Packages
@@ -302,11 +325,11 @@ https://github.com/offensive-security/exploit-database
 https://gitlab.com/exploit-database/exploitdb
 https://github.com/laluka/pty4all
 https://github.com/laluka/pypotomux
+https://github.com/hugsy/gef
 
 # Clones Wordlists
 https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
 https://github.com/swisskyrepo/PayloadsAllTheThings
-https://github.com/projectdiscovery/fuzzing-templates
 https://github.com/1N3/BruteX
 https://github.com/1N3/IntruderPayloads
 https://github.com/berzerk0/Probable-Wordlists
