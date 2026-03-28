@@ -119,3 +119,9 @@ eval "$(register-python-argcomplete --no-defaults exegol)"
 # Created by `pipx` on 2025-03-03 15:05:01
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.pdtm/go/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(fnm env --use-on-cd)"
+alias claude-yolo="claude --dangerously-skip-permissions"

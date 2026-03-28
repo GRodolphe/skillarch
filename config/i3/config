@@ -221,3 +221,7 @@ for_window [floating] resize set 1536 864, resize set 1536 864, move position 19
 bindsym $mod+h exec kitty --title "Help: SkillArch Bindings" zsh -ic "ska-help-bindings"
 bindsym $mod+Shift+h exec kitty --title "Help: SkillArch Aliases" zsh -ic "ska-help-aliases"
 bindsym $mod+Control+h exec kitty --title "Help: SkillArch packages" zsh -ic "ska-help-packages"
+bindsym Mod4+space exec /home/roro/Tools/M5Burner/M5Burner
+
+# Launch M5Burner
+bindsym Mod4+space exec /home/roro/Tools/M5Burner/M5Burner
